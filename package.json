@@ -1,0 +1,19 @@
+{
+  "name": "liri-node-app",
+  "version": "1.0.0",
+  "description": "liri homework",
+  "main": "index.js",
+  "scripts": {
+    "test": "hey"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BenE7/liri-node-app.git"
+  },
+  "author": "BenE7",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BenE7/liri-node-app/issues"
+  },
+  "homepage": "https://github.com/BenE7/liri-node-app#readme"
+}
