@@ -1,5 +1,6 @@
 // require("dotenv").config();
 var keys = require("./keys.js");
+var request = require("request");
 
 // var client = new twitter(keys.twitter);
 // var spotify = new spotify(keys.spotify);
@@ -63,15 +64,63 @@ function spotifyApi(){
         return;
     }
  
-    // console.log(data.tracks.items[0].album.name);
-    spotArr.push(data.tracks.items[0].artists[0].name);
-    spotArr.push(data.tracks.items[0].name);
-    spotArr.push(data.tracks.items[0].preview_url);
-    spotArr.push(data.tracks.items[0].album.name);
+    spotArr.push("Artist: " + data.tracks.items[0].artists[0].name);
+    spotArr.push("Title: " + data.tracks.items[0].name);
+    spotArr.push("Preview: " + data.tracks.items[0].preview_url);
+    spotArr.push("Album Name: " + data.tracks.items[0].album.name);
 
     console.log(spotArr);
 });
 }
+
+
+// OMDB SECTION //
+
+if(process.argv[2] == "movie-this"){
+
+   if(process.argv[3] === undefined){
+    OMDB("Mr.Nobody");
+      }
+       else {
+        OMDB();
+      }
+
+  
+
+
+
+  };
+
+
+
+function OMDB (movie){
+	request("http://www.omdbapi.com/?apikey=trilogy&t=" + process.argv[3], function(error, response, body){
+    nobodyArr = [];
+		movieArr = [];
+		if (error){
+			return;
+		}
+		else{
+      var data = JSON.parse(body);
+			movieArr.push("Title: " + data.Title);
+      movieArr.push("Release Date: " + data.Released);
+      movieArr.push("imdbRating: " + data.imdbRating);
+      movieArr.push("Rotten Tomatoes: " + data.Ratings[1]);
+      movieArr.push("Countries: " + data.Country);
+      movieArr.push("Language: " + data.Language);
+      movieArr.push("Plot: " + data.Plot);
+      movieArr.push("Actors :" + data.Actors);
+
+      
+
+
+      console.log(movieArr);
+
+		}
+	});
+};
+
+
 
 
 
