@@ -85,12 +85,7 @@ if(process.argv[2] == "movie-this"){
         OMDB();
       }
 
-  
-
-
-
   };
-
 
 
 function OMDB (movie){
@@ -119,26 +114,5 @@ function OMDB (movie){
 		}
 	});
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
